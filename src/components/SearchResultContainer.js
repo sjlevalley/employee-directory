@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Moment from 'react-moment';
-
-
-// import SearchForm from "./SearchForm";
+import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
 // import API from "../utils/API";
 
@@ -36,23 +34,30 @@ class SearchResultContainer extends Component {
 
 
     return (
-      < div className="container-fluid" >
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Email</th>
-              <th scope="col">DOB</th>
-            </tr>
-          </thead>
-          <tbody>
-            {resultsList}
-          </tbody>
-        </table>
+      <>
+        <SearchForm
+          search={this.state.search}
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
+        />
+        < div className="container-fluid" >
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">DOB</th>
+              </tr>
+            </thead>
+            <tbody>
+              {resultsList}
+            </tbody>
+          </table>
 
-      </div >
+        </div >
+      </>
     );
   }
 }

@@ -1,5 +1,6 @@
-.jumbotron {
-  border-bottom: 10px solid red;
+.jumboTron {
+  border-bottom: 10px solid rgb(180, 50, 50);
+  background-color: rgb(53, 53, 54);
 }
 
 .formGroup {
@@ -8,6 +9,5 @@
 }
 
 .searchBox {
-  /* background-color: red; */
   width: 20%;
 }

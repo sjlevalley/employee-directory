@@ -7,10 +7,18 @@ const BASEURL = "https://randomuser.me/api/?results=50&nat=us";
 
 // Export an object with a "search" method that searches the Giphy API for
 // the passed query
-export default {
-  getEmployees: function () {
+
+// export default {
+//   getEmployees: function () {
+//     return axios.get(BASEURL);
+//   },
+// };
+
+const API = {
+  search: function () {
     return axios.get(BASEURL);
   },
 };
 
 
+export default API;

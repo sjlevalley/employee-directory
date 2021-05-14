@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import SearchForm from "./SearchForm";
+import Moment from 'react-moment';
+
+
+// import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
-import API from "../utils/API";
+// import API from "../utils/API";
 
 class SearchResultContainer extends Component {
   state = {
@@ -10,36 +13,46 @@ class SearchResultContainer extends Component {
   };
 
   // When this component mounts, search the Giphy API for pictures of kittens
-  componentDidMount() {
-    console.log(API.getEmployees());
+  async componentDidMount() {
+    const BASEURL = "https://randomuser.me/api/?results=50&nat=us";
+    const response = await fetch(BASEURL);
+    const employeesList = await response.json();
+    this.setState({ results: employeesList.results })
+    console.log(this.state.results)
+  }
 
-  };
 
-
-  // handleInputChange = (event) => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // };
-
-  // When the form is submitted, search the Giphy API for `this.state.search`
-  // handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.searchGiphy(this.state.search);
-  // };
 
   render() {
+    const resultsList = this.state.results.map((employee) =>
+      <tr>
+        <td><img src={employee.picture.thumbnail} alt="employee pic"></img></td>
+        <td>{employee.name.first + " " + employee.name.last}</td>
+        <td>{employee.cell}</td>
+        <td>{employee.email}</td>
+        <td><Moment format="DD MMMM YYYY">{employee.dob.date}</Moment></td>
+      </tr>
+    )
+
+
     return (
-      <div>
-        <SearchForm
-          search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-        <ResultList results={this.state.results} />
-      </div>
+      < div className="container-fluid" >
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">DOB</th>
+            </tr>
+          </thead>
+          <tbody>
+            {resultsList}
+          </tbody>
+        </table>
+
+      </div >
     );
   }
 }

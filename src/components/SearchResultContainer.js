@@ -4,10 +4,13 @@ import SearchForm from "./SearchForm";
 // import ResultList from "./ResultList";
 import API from "../utils/API";
 
+
+
 class SearchResultContainer extends Component {
   state = {
     search: "",
     results: [],
+    email: 1,
   };
 
   // When this component mounts, search the API for employees
@@ -31,7 +34,20 @@ class SearchResultContainer extends Component {
     });
   };
 
-  // 
+  handleSort = (event) => {
+    const sortColumn = event.target.getAttribute("data-name");
+    const sortedItems = this.state.results.map((employee) => employee);
+    sortedItems.sort((x, y) => {
+      if (x[sortColumn] > y[sortColumn]) {
+        return 1 * this.state[sortColumn];
+      } else if (x[sortColumn] < y[sortColumn]) {
+        return -1 * this.state[sortColumn];
+      }
+      return 0;
+    });
+    this.setState({ results: sortedItems, [sortColumn]: this.state[sortColumn] * (-1) });
+  };
+
 
   render() {
     const resultsList = this.state.results.filter((employee) => {
@@ -75,12 +91,13 @@ class SearchResultContainer extends Component {
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Email</th>
+                <th data-name="email" onClick={this.handleSort} scope="col">Email</th>
                 <th scope="col">DOB</th>
               </tr>
             </thead>
             <tbody>
               {resultsList}
+
             </tbody>
           </table>
 

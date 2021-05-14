@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import SearchResultContainer from "./components/SearchResultContainer";
+import Jumbotron from "./components/Jumbotron";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div>
+//       <Jumbotron />
+//       <SearchResultContainer />
+//     </div>
+//   );
+// }
+
+class App extends Component {
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <Jumbotron />
+        <SearchResultContainer />
+      </div>
+    )
+
+  };
+
+};
 
 export default App;

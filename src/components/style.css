@@ -1,0 +1,13 @@
+.jumbotron {
+  border-bottom: 10px solid red;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBox {
+  /* background-color: red; */
+  width: 20%;
+}

@@ -1,7 +1,7 @@
 {
   "name": "employee-directory",
   "version": "0.1.0",
-  "homepage": "https://myusername.github.io/employee-directory",
+  "homepage": "http://sjlevalley.github.io/employee-directory",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",

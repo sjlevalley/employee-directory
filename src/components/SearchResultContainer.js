@@ -11,6 +11,7 @@ class SearchResultContainer extends Component {
     search: "",
     results: [],
     email: 1,
+    name: 1,
   };
 
   // When this component mounts, search the API for employees
@@ -89,7 +90,7 @@ class SearchResultContainer extends Component {
             <thead>
               <tr>
                 <th scope="col">Image</th>
-                <th scope="col">Name</th>
+                <th data-name="name" onClick={this.handleSort} scope="col">Name</th>
                 <th scope="col">Phone</th>
                 <th data-name="email" onClick={this.handleSort} scope="col">Email</th>
                 <th scope="col">DOB</th>
@@ -97,7 +98,6 @@ class SearchResultContainer extends Component {
             </thead>
             <tbody>
               {resultsList}
-
             </tbody>
           </table>
 

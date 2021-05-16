@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+- This app allows the user to view, create, and track daily workout sessions as well as view past workout sessions and stats
+- This project and/or repository can be found at the following url(s)
+  - [Deployed on GitHub Pages](https://github.com/sjlevalley/employee-directory)
+  - [GitHub Repo](https://github.com/sjlevalley/employee-directory)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -44,6 +49,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+If you have any questions, I can be reached through me email at slevalley@gmail.com. My GitHub profile can be viewed at at
+[sjlevalley](https://www.github.com/sjlevalley).
 
 ### Code Splitting
 

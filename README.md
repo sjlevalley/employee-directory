@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+![App Screenshot](src\utils\images\employeeDirectoryPic.png "Description")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 - This app allows the user to view, create, and track daily workout sessions as well as view past workout sessions and stats

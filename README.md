@@ -1,13 +1,17 @@
-# Getting Started with Create React App
+## Getting Started with Create React App
 
-![App Screenshot](src\utils\images\employeeDirectoryPic.png "Description")
+![](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SCREENSHOT OF APP
 
-- This app allows the user to view, create, and track daily workout sessions as well as view past workout sessions and stats
-- This project and/or repository can be found at the following url(s)
-  - [Deployed on GitHub Pages](https://github.com/sjlevalley/employee-directory)
-  - [GitHub Repo](https://github.com/sjlevalley/employee-directory)
+![App Screenshot](employeeDirectoryPic.png "Description")
+
+## DESCRIPTION
+
+This app is designed to allow managers, HR representatives, or anybody with a need for personnel organization to view, sort, and search through a list of employees. This app was created using React and is intended to demonstrate the skills needed to create a functional app that applies to a real world scenario.
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This deployed app can be viewed at: https://github.com/sjlevalley/employee-directory
 
 ## Available Scripts
 

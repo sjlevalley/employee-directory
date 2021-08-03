@@ -11,10 +11,6 @@ class SearchResultContainer extends Component {
   state = {
     search: "",
     results: [],
-    phone: 1,
-    email: 1,
-    name: 1,
-    dob: { date: 1 },
   };
 
   // When this component mounts, search the API for employees
@@ -39,7 +35,6 @@ class SearchResultContainer extends Component {
   };
 
   handleSort = (event) => {
-    console.log(this.state.results)
     let unsortedResults = this.state.results
     if (event.target.value === "name-up-arrow") {
       let sortedResults = unsortedResults.sort((a, b) => (a.name.last < b.name.last) ? 1 : -1)
@@ -88,7 +83,7 @@ class SearchResultContainer extends Component {
     return (
       <>
         <SearchForm search={this.state.search} handleSearchChange={this.handleSearchChange} />
-        < div className="container-fluid border" >
+        < div className="container-fluid border w-100" >
           <table className="table">
             <thead>
               <tr>

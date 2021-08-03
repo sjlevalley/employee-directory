@@ -5,7 +5,7 @@ import Jumbotron from "./components/Jumbotron";
 class App extends Component {
   render() {
     return (
-      <div className="container-fluid">
+      <div>
         <Jumbotron />
         <SearchResultContainer />
       </div>

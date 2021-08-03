@@ -11,3 +11,19 @@
 .searchBox {
   width: 20%;
 }
+
+.imageHeaderBox {
+  justify-content: center;
+  border: none;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#nameBox {
+  margin: -0px;
+  border: none;
+}
+
+#nameBox {
+  border: none;
+}

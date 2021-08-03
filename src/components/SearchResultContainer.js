@@ -75,7 +75,6 @@ class SearchResultContainer extends Component {
       } else if (!employeename.includes(employeeSearch) || !employeeLastName.includes(employeeSearch)) {
         return false
       }
-
     }).map((employee) =>
       <tr >
         <td className="text-center"><img src={employee.picture.thumbnail} alt="employee pic"></img></td>
@@ -86,24 +85,18 @@ class SearchResultContainer extends Component {
       </tr>
     )
 
-
     return (
       <>
-        <SearchForm
-          search={this.state.search}
-          handleSearchChange={this.handleSearchChange}
-        />
+        <SearchForm search={this.state.search} handleSearchChange={this.handleSearchChange} />
         < div className="container-fluid border" >
           <table className="table">
             <thead>
               <tr>
-
                 <th data-name="image" scope="col" className="">
                   <div className=" d-flex justify-content-center align-items-center">
                     Image
                   </div>
                 </th>
-
                 <th data-name="name" scope="col" className="border" onClick={this.handleSort}  >
                   <div className="container-fluid">
                     <div className="row">
@@ -117,13 +110,11 @@ class SearchResultContainer extends Component {
                     </div>
                   </div>
                 </th>
-
                 <th data-name="phone" scope="col">
                   <div className=" d-flex justify-content-center align-items-center">
                     Phone
                   </div>
                 </th>
-
                 <th data-name="email" scope="col" className="border" onClick={this.handleSort}  >
                   <div className="container-fluid">
                     <div className="row">
@@ -137,7 +128,6 @@ class SearchResultContainer extends Component {
                     </div>
                   </div>
                 </th>
-
                 <th data-name="dob" scope="col" className="border" onClick={this.handleSort}>
                   <div className="container-fluid">
                     <div className="row">
@@ -151,19 +141,12 @@ class SearchResultContainer extends Component {
                     </div>
                   </div>
                 </th>
-
-
-
-
-
-
               </tr>
             </thead>
             <tbody>
               {resultsList}
             </tbody>
           </table>
-
         </div >
       </>
     );

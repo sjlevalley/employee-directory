@@ -4,7 +4,19 @@
 
 ## SCREENSHOT OF APP
 
-![App Screenshot](employeeDirectoryPic.png "Description")
+![App Screenshot](AppScreenShot.png "Description")
+
+<p align="left">
+    <img src="https://img.shields.io/github/repo-size/sjlevalley/employee-directory" />
+    <img src="https://img.shields.io/github/languages/top/sjlevalley/employee-directory"  />
+    <img src="https://img.shields.io/github/issues/sjlevalley/employee-directory" />
+    <img src="https://img.shields.io/github/last-commit/sjlevalley/employee-directory" >
+
+</p>
+
+<p align="left">
+    <img src="https://img.shields.io/badge/Javascript-yellow" />
+</p>
 
 ## DESCRIPTION
 

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Moment from 'react-moment';
 import SearchForm from "./SearchForm";
-// import ResultList from "./ResultList";
 import './style.css'
 import API from "../utils/API";
 
@@ -34,6 +33,7 @@ class SearchResultContainer extends Component {
     });
   };
 
+
   handleSort = (event) => {
     let unsortedResults = this.state.results
     if (event.target.value === "name-up-arrow") {
@@ -54,6 +54,8 @@ class SearchResultContainer extends Component {
 
 
 
+
+
   render() {
     const resultsList = this.state.results.filter((employee) => {
       // get search from state
@@ -66,12 +68,16 @@ class SearchResultContainer extends Component {
       // if name includes search, return true
       // else if name does not include search, return false
       if (employeename.includes(employeeSearch) || employeeLastName.includes(employeeSearch)) {
+
         return true
       } else if (!employeename.includes(employeeSearch) || !employeeLastName.includes(employeeSearch)) {
         return false
       }
+      return resultsList;
+
     }).map((employee) =>
-      <tr >
+
+      <tr key={employee.dob.date}>
         <td className="text-center"><img src={employee.picture.thumbnail} alt="employee pic"></img></td>
         <td className="text-center">{employee.name.first + " " + employee.name.last}</td>
         <td className="text-center">{employee.cell}</td>
@@ -101,6 +107,9 @@ class SearchResultContainer extends Component {
                       <div className="col d-flex justify-content-start">
                         <button value="name-up-arrow" className="m-1">▲</button>
                         <button value="name-down-arrow" className="m-1">▼</button>
+                        {/* <button >
+                          <FontAwesomeIcon icon={faSort} />
+                        </button> */}
                       </div>
                     </div>
                   </div>
@@ -119,6 +128,7 @@ class SearchResultContainer extends Component {
                       <div className="col d-flex justify-content-start">
                         <button value="name-up-arrow" className="m-1">▲</button>
                         <button value="name-down-arrow" className="m-1">▼</button>
+                        {/* <FontAwesomeIcon icon={faSort} /> */}
                       </div>
                     </div>
                   </div>
@@ -132,6 +142,7 @@ class SearchResultContainer extends Component {
                       <div className="col d-flex justify-content-start">
                         <button value="dob-up-arrow" className="m-1">▲</button>
                         <button value="dob-down-arrow" className="m-1">▼</button>
+                        {/* <FontAwesomeIcon icon={faSort} /> */}
                       </div>
                     </div>
                   </div>

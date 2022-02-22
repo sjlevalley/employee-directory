@@ -1,61 +1,185 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import TestTable from './TestTable';
-
-function TestPage({ dispatch, testPageData }) {
-
-    const employeeData = useSelector((state) => state.employees.employees);
-
-    // const tableData = employeeData.employees.results
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import moment from 'moment'
+import { DataGrid } from '@mui/x-data-grid';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 
+function TestPage() {
+
+    const [searchValue, setSearchValue] = useState(null)
+    const [filteredData, setFilteredData] = useState(null)
+    const employeeData = useSelector((state) => state.employees.employees.employees.results);
 
     const columns = [
-        // {
-        //     title: 'image',
-        //     dataIndex: 'picture.thumbnail',
-        //     key: 'picture.thumbnail',
-        //     sorter: (a, b) => a.picture[2].localeCompare(b.picture[2]),
-        //     onFilter: (value, record) => record.picture[2].includes(value)
-        // },
         {
-            title: 'Nationality',
-            dataIndex: 'nat',
-            key: 'nat',
-            sorter: (a, b) => a.nat.localeCompare(b.nat),
-            onFilter: (value, record) => record.nat.includes(value)
+            field: 'id',
+            headerName: 'ID',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
         },
         {
-            title: 'Gender',
-            dataIndex: 'gender',
-            key: 'gender',
-            sorter: (a, b) => a.gender.localeCompare(b.gender),
-            onFilter: (value, record) => record.gender.includes(value)
+            field: 'image',
+            headerName: 'Image',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+            renderCell: (params) => <img style={{ borderRadius: '5px' }} src={params.value} alt='' />
         },
         {
-            title: 'Phone Number',
-            dataIndex: 'phone',
-            key: 'phone',
-            sorter: (a, b) => a.phone.localeCompare(b.phone),
-            onFilter: (value, record) => record.phone.includes(value)
+            field: 'firstName',
+            headerName: 'First Name',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+
         },
         {
-            title: 'Email',
-            dataIndex: 'email',
-            key: 'email',
-            sorter: (a, b) => a.email.localeCompare(b.email),
-            onFilter: (value, record) => record.email.includes(value)
+            field: 'lastName',
+            headerName: 'Last Name',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+
         },
-    ]
+        {
+            field: 'phone',
+            headerName: 'Phone',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+
+        },
+        {
+            field: 'email',
+            headerName: 'Email',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+
+        },
+        {
+            field: 'dob',
+            headerName: 'Date of Birth',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+
+        },
+        {
+            field: 'nationality',
+            headerName: 'Nationality',
+            headerAlign: 'center',
+            align: 'center',
+            flex: 1,
+        }
+    ];
+
+    let employeesArray = []
+    const renderRows = () => {
+        employeeData.map((employee, index) => {
+            const birthDate = moment(employee.dob.date).format('MMMM Do, YYYY');
+            employeesArray.push({
+                id: index,
+                image: employee.picture.large,
+                firstName: employee.name.first,
+                lastName: employee.name.last,
+                name: `${employee.name.first} ${employee.name.last}`,
+                phone: employee.phone,
+                email: employee.email,
+                dob: birthDate,
+                nationality: employee.nat
+            })
+        })
+    }
+    renderRows()
+
+    const rows = employeesArray
+
+
+
+    React.useEffect(() => {
+        const renderFiltered = () => {
+            let newArray = []
+            if (searchValue === null || searchValue === '') {
+                newArray = rows
+            } else {
+                const filteredEmployees = employeeData.filter((employee) => {
+                    const employeeSearch = searchValue?.toLowerCase()
+                    if (
+                        employee.name.first.toLowerCase().includes(employeeSearch) ||
+                        employee.name.last.toLowerCase().includes(employeeSearch) ||
+                        employee.email.toLowerCase().includes(employeeSearch) ||
+                        employee.phone.toLowerCase().includes(employeeSearch) ||
+                        employee.dob.date.toLowerCase().includes(employeeSearch) ||
+                        employee.nat.toLowerCase().includes(employeeSearch)
+                    ) { return true }
+                    return false
+                })
+                filteredEmployees.map((employee, index) => {
+                    const birthDate = moment(employee.dob.date).format('MMMM Do, YYYY');
+                    newArray.push({
+                        id: index,
+                        image: employee.picture.large,
+                        firstName: employee.name.first,
+                        lastName: employee.name.last,
+                        name: `${employee.name.first} ${employee.name.last}`,
+                        phone: employee.phone,
+                        email: employee.email,
+                        dob: birthDate,
+                        nationality: employee.nat
+                    })
+                })
+            }
+            setFilteredData(() => newArray)
+        }
+        renderFiltered()
+    }, [searchValue])
+
+
+
+    React.useEffect(() => {
+        console.log(filteredData)
+    }, [filteredData])
+
+
+
+
 
     return (
-        <TestTable
-            columns={columns}
-        // data={tableData} // Get data from store
-        />
-
+        <>
+            <div style={{ height: 800, width: '100%' }}>
+                <Box
+                    component="form"
+                    sx={{
+                        '& > :not(style)': { m: 2, width: '50ch' },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField
+                        id="outlined-basic"
+                        label="Search Employees..."
+                        variant="outlined"
+                        onChange={(e) => setSearchValue(() => e.target.value)}
+                    />
+                </Box>
+                <DataGrid
+                    rowHeight={150}
+                    rows={filteredData}
+                    columns={columns}
+                    pageSize={25}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                />
+            </div>
+        </>
     )
 }
+
+
 
 
 

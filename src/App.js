@@ -11,11 +11,6 @@ import { uiActions } from './store/ui-slice';
 
 export default function App() {
   const dispatch = useDispatch();
-  // const cartTotal = useSelector((state) => state.ui.cartModalVisible);
-  // const cart = useSelector((state) => state.cart);
-  // const notification = useSelector((state) => state.ui.notification);
-  // const products = useSelector((state) => state.products.items);
-  // const categories = useSelector((state) => state.products.categories);
   const loading = useSelector((state) => state.ui.loading)
   const employeeData = useSelector((state) => state.employees.employees);
 

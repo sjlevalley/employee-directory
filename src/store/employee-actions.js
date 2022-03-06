@@ -8,7 +8,7 @@ export const fetchEmployeeData = () => {
     // fetch the data from the database (with fetch, the default method is "GET")
     const fetchData = async () => {
 
-      const BASEURL = "https://randomuser.me/api/?results=50&nat=us";
+      const BASEURL = "https://randomuser.me/api/?results=200&nat=us";
       dispatch(uiActions.setLoadingTrue());
       // Set the response variable in an async function
       const response = await fetch(BASEURL);

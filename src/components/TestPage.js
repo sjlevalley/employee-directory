@@ -139,15 +139,6 @@ function TestPage() {
     }, [searchValue])
 
 
-
-    React.useEffect(() => {
-        console.log(filteredData)
-    }, [filteredData])
-
-
-
-
-
     return (
         <>
             <div style={{ height: 800, width: '100%' }}>
@@ -173,6 +164,16 @@ function TestPage() {
                     pageSize={25}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
+                    sx={{
+                        boxShadow: 2,
+
+                        p: 2,
+                        border: 2,
+                        borderColor: 'primary.light',
+                        '& .MuiDataGrid-cell:hover': {
+                            color: 'primary.main',
+                        },
+                    }}
                 />
             </div>
         </>

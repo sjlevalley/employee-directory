@@ -1,20 +1,14 @@
-.jumboTron {
+.jumboTronContainer {
+  background-image: url("../employees.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   border-bottom: 10px solid rgb(180, 50, 50);
-  background-color: rgb(53, 53, 54);
 }
 
-.formGroup {
-  display: flex;
-  justify-content: center;
-}
-
-.searchBox {
-  width: 20%;
-}
-
-.imageHeaderBox {
-  justify-content: center;
-  border: none;
-  align-items: center;
-  margin-bottom: 8px;
+.jumbotronTextBox {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* width: fit-content; */
+  border-radius: 5px;
+  /* height: 100%; */
 }

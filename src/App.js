@@ -25,7 +25,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<SearchResultContainer />} />
 
-          <Route path="/test" element={<TestPage />}>
+          <Route path="/employee-directory" element={<TestPage />}>
           </Route>
         </Routes>
       </Router>

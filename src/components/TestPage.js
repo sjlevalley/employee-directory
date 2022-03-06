@@ -10,7 +10,7 @@ function TestPage() {
 
     const [searchValue, setSearchValue] = useState(null)
     const [filteredData, setFilteredData] = useState(null)
-    const employeeData = useSelector((state) => state.employees.employees.employees.results);
+    const employeeData = useSelector((state) => state.employees.employees.employees?.results);
 
     const columns = [
         {
@@ -79,11 +79,11 @@ function TestPage() {
 
     let employeesArray = []
     const renderRows = () => {
-        employeeData.map((employee, index) => {
+        employeeData?.map((employee, index) => {
             const birthDate = moment(employee.dob.date).format('MMMM Do, YYYY');
             employeesArray.push({
                 id: index,
-                image: employee.picture.large,
+                image: employee.picture.medium,
                 firstName: employee.name.first,
                 lastName: employee.name.last,
                 name: `${employee.name.first} ${employee.name.last}`,
@@ -122,7 +122,7 @@ function TestPage() {
                     const birthDate = moment(employee.dob.date).format('MMMM Do, YYYY');
                     newArray.push({
                         id: index,
-                        image: employee.picture.large,
+                        image: employee.picture.thumbnail,
                         firstName: employee.name.first,
                         lastName: employee.name.last,
                         name: `${employee.name.first} ${employee.name.last}`,
@@ -158,8 +158,8 @@ function TestPage() {
                     />
                 </Box>
                 <DataGrid
-                    rowHeight={150}
-                    rows={filteredData}
+                    rowHeight={80}
+                    rows={filteredData?.length > 0 ? filteredData : rows}
                     columns={columns}
                     pageSize={25}
                     rowsPerPageOptions={[5]}

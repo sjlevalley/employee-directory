@@ -52,11 +52,6 @@ const TestTable = ({ columns }) => {
             <StyledTable
                 columns={columns}
                 dataSource={employeeData ? employeeData : []}
-            // rowClassName={(record, index) =>
-            //     index % 2 === 0 ? 'table-row-light' : 'table-row-dark'
-            // }
-            // bordered
-            // pagination={{ pageSize: 10, showSizeChanger: false }}
             />
         </>
     )

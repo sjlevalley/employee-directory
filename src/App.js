@@ -5,14 +5,12 @@ import SearchResultContainer from "./components/SearchResultContainer";
 import TestPage from "./components/TestPage";
 import Jumbotron from "./components/Jumbotron";
 import { fetchEmployeeData } from './store/employee-actions';
-import { uiActions } from './store/ui-slice';
+// import { uiActions } from './store/ui-slice';
 
 
 
 export default function App() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.ui.loading)
-  const employeeData = useSelector((state) => state.employees.employees);
 
   useEffect(() => {
     dispatch(fetchEmployeeData());
@@ -24,7 +22,6 @@ export default function App() {
         <Jumbotron />
         <Routes>
           <Route path="/" element={<SearchResultContainer />} />
-
           <Route path="/employee-directory" element={<TestPage />}>
           </Route>
         </Routes>

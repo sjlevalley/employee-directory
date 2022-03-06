@@ -1,14 +1,9 @@
 .jumboTronContainer {
-  background-image: url("../employees.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   border-bottom: 10px solid rgb(180, 50, 50);
-}
-
-.jumbotronTextBox {
-  background-color: rgba(0, 0, 0, 0.8);
-  /* width: fit-content; */
   border-radius: 5px;
-  /* height: 100%; */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1)),
+    url("../employees.png") center no-repeat;
+  height: 200px;
+  display: flex;
+  align-items: center;
 }

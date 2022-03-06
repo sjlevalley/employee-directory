@@ -34,22 +34,6 @@ class SearchResultContainer extends Component {
   };
 
 
-  handleSort = (event) => {
-    let unsortedResults = this.state.results
-    if (event.target.value === "name-up-arrow") {
-      let sortedResults = unsortedResults.sort((a, b) => (a.name.last < b.name.last) ? 1 : -1)
-      this.setState({ ...this.state, results: sortedResults })
-    } else if (event.target.value === "name-down-arrow") {
-      let sortedResults = unsortedResults.sort((a, b) => (a.name.last > b.name.last) ? 1 : -1)
-      this.setState({ ...this.state, results: sortedResults })
-    } else if (event.target.value === "dob-up-arrow") {
-      let sortedResults = unsortedResults.sort((a, b) => (a.dob.date < b.dob.date) ? 1 : -1)
-      this.setState({ ...this.state, results: sortedResults })
-    } else if (event.target.value === "dob-down-arrow") {
-      let sortedResults = unsortedResults.sort((a, b) => (a.dob.date > b.dob.date) ? 1 : -1)
-      this.setState({ ...this.state, results: sortedResults })
-    }
-  }
 
 
 
@@ -107,9 +91,6 @@ class SearchResultContainer extends Component {
                       <div className="col d-flex justify-content-start">
                         <button value="name-up-arrow" className="m-1">▲</button>
                         <button value="name-down-arrow" className="m-1">▼</button>
-                        {/* <button >
-                          <FontAwesomeIcon icon={faSort} />
-                        </button> */}
                       </div>
                     </div>
                   </div>

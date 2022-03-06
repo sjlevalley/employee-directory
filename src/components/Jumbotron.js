@@ -1,14 +1,19 @@
 import React from "react";
+import Box from "@mui/material/Box";
 import "./style.css";
 
 
 function Jumbotron() {
     return (
         <div className="jumbotron-fluid text-light jumboTronContainer">
-            <div className="textBox">
+            <Box
+                sx={{
+                    ml: 4,
+                }}
+            >
                 <h1 className="display-4 text-left">Employee Directory</h1>
-                <p className="lead text-left">Click on arrows to filter by heading or use the search box to narrow your results.</p>
-            </div>
+                <p className="lead text-left">Search your Employees!</p>
+            </Box>
         </div>
     );
 }

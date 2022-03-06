@@ -1,9 +1,8 @@
 .jumboTronContainer {
   border-bottom: 10px solid rgb(180, 50, 50);
-  border-radius: 5px;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1)),
     url("../employees.png") center no-repeat;
-  height: 200px;
+  height: 250px;
   display: flex;
   align-items: center;
 }

@@ -1,12 +1,10 @@
-import React, { useEffect, Component } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { Navigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SearchResultContainer from "./components/SearchResultContainer";
-import TestPage from "./components/TestPage";
+import EmployeeDirectory from "./components/EmployeeDirectory";
 import Jumbotron from "./components/Jumbotron";
 import { fetchEmployeeData } from './store/employee-actions';
-// import { uiActions } from './store/ui-slice';
-
 
 
 export default function App() {
@@ -21,8 +19,8 @@ export default function App() {
       <Router>
         <Jumbotron />
         <Routes>
-          <Route path="/" element={<SearchResultContainer />} />
-          <Route path="/employee-directory" element={<TestPage />}>
+          <Route path="/employee-directory" element={<EmployeeDirectory />}></Route>
+          <Route path="*" element={<Navigate to="/employee-directory" replace={true} />}>
           </Route>
         </Routes>
       </Router>

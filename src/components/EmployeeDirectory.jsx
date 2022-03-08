@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { renderRows, renderFiltered } from "../utils/utils";
-import moment from "moment";
 import { DataGrid } from "@mui/x-data-grid";
 import SearchBox from "./SearchBox";
 

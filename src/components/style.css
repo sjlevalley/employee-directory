@@ -1,5 +1,4 @@
 .jumboTronContainer {
-  border-bottom: 10px solid rgb(180, 50, 50);
   background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1)),
     url("../employees.png") center no-repeat;
   height: 250px;

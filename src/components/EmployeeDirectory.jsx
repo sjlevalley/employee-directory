@@ -99,7 +99,7 @@ function EmployeeDirectory() {
             mt: 2,
             p: 2,
             border: 2,
-            borderColor: "primary.light",
+            borderColor: "grey.400",
             "& .MuiDataGrid-cell:hover": {
               color: "primary.main",
             },
